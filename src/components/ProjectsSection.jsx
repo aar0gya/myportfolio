@@ -5,7 +5,7 @@ const projects = [
         id: 1,
         title: "Stock News Sentiment Analysis",
         description: "Python scraper of stock news on Finviz, sentiment analysis with NLTK VADER, and visualization of sentiment trends of major tickers.",
-        image: "src/assets/project-stock-trend-analysis.png",
+        image: "/projects/project-stock-trend-analysis.png",
         tags: ["Python", "Pandas", "NLTK", "Matplotlib", "Data Visualization"],
         demoUrl: "https://stock-news-sentiment-analysis-fzx7qmxy27r8jt7immruik.streamlit.app/",
         githubUrl: "https://github.com/aar0gya/Stock-News-Sentiment-Analysis",
@@ -15,7 +15,7 @@ const projects = [
         title: "Full Stack Chat App",
         description:
             "A current real-time chat application developed on the MERN stack with live chatting, profile control, custom themes, and a clean and responsive user interface.",
-        image: "src/assets/chatty-logo.png",
+        image: "/projects/chatty-logo.png",
         tags: ["React", "Nodejs", "Express", "Real Time", "Socket.io"],
         demoUrl: "https://chat-app-fullstack-g0zc.onrender.com/login",
         githubUrl: "https://github.com/aar0gya/chat-app",
@@ -25,7 +25,7 @@ const projects = [
         title: "Fake News Prediction",
         description:
             "A hybrid architecture end-to-end machine learning application that is used to identify the real or fake nature of a news headline or snippet.",
-        image: "src/assets/fake-news-detection.png",
+        image: "/projects/fake-news-detection.png",
         tags: ["Python", "NLP", "Machine Learning", "Sckit-Learn", "Transformers"],
         demoUrl: "https://fake-news-prediction-brp3oqtbdsj5jd9pithszn.streamlit.app/",
         githubUrl: "https://github.com/aar0gya/fake-news-prediction",
