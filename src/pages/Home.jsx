@@ -168,6 +168,14 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
     const revealElements = document.querySelectorAll("[data-reveal]");
     const sectionElements = document.querySelectorAll("section[id]");
 
@@ -267,7 +275,7 @@ export const Home = () => {
       </header>
 
       {menuOpen && (
-        <div className="mobile-panel" data-reveal>
+        <div className="mobile-panel">
           {navigation.map((item) => (
             <a key={item.href} href={item.href} className="mobile-link" onClick={() => setMenuOpen(false)}>
               {item.label}
