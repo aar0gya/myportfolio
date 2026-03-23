@@ -102,6 +102,61 @@
   gap: 26px;
 }
 
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 28px;
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 95%, white 5%), color-mix(in srgb, var(--surface) 86%, transparent));
+  box-shadow: var(--shadow);
+}
+
+.footer-copy h2 {
+  margin: 8px 0 0;
+  max-width: 18ch;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.15;
+  color: var(--heading);
+}
+
+.footer-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--heading);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.footer-social:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--surface-soft) 76%, transparent);
+}
+
 .ambient {
   position: fixed;
   border-radius: 999px;
@@ -743,6 +798,16 @@
   .hero-copy h1 {
     max-width: 100%;
     font-size: clamp(2.7rem, 10vw, 4rem);
+  }
+
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }
 

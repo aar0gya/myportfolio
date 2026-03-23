@@ -5,6 +5,7 @@ import {
   Code2,
   ExternalLink,
   Github,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
@@ -126,6 +127,11 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/aarogya-bikram-thapa-ab63b6371",
     icon: Linkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/aar0gya/",
+    icon: Instagram,
   },
   {
     label: "GitHub",
@@ -506,6 +512,25 @@ export const Home = () => {
             </button>
           </form>
         </section>
+
+        <footer className="site-footer" data-reveal>
+          <div className="footer-copy">
+            <p className="footer-kicker">Aarogya Bikram Thapa</p>
+            <h2>Building polished products with strong frontend craft and full-stack range.</h2>
+          </div>
+
+          <div className="footer-links">
+            {socialLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="footer-social">
+                  <Icon size={18} />
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
+        </footer>
       </main>
     </div>
   );
