@@ -69,14 +69,14 @@ const recruiterNotes = [
 
 const projects = [
   {
-    title: "Full Stack Chat App",
-    category: "Realtime product",
+    title: "apex-kicks",
+    category: "Full-stack ecommerce product",
     description:
-      "A MERN-based chat platform with live messaging, profile customization, theming, and a clean cross-device experience.",
-    outcome: "Shows full-stack delivery across state, sockets, auth flows, and UI polish.",
-    stack: ["React", "Node.js", "Express", "Socket.io", "MongoDB"],
-    demoUrl: "https://chat-app-fullstack-g0zc.onrender.com/login",
-    githubUrl: "https://github.com/aar0gya/chat-app",
+      "A full-stack sneaker ecommerce platform built with React, Node.js, PostgreSQL, Stripe payments, Clerk authentication, an admin dashboard, and transactional emails.",
+    outcome: "Shows end-to-end product delivery across storefront UX, payments, authentication, admin tooling, and production-style backend flows.",
+    stack: ["React", "Node.js", "JavaScript", "Express", "Stripe", "PostgreSQL"],
+    demoUrl: "https://github.com/aar0gya/apex-kicks",
+    githubUrl: "https://github.com/aar0gya/apex-kicks",
   },
   {
     title: "Stock News Sentiment Analysis",
@@ -89,14 +89,14 @@ const projects = [
     githubUrl: "https://github.com/aar0gya/Stock-News-Sentiment-Analysis",
   },
   {
-    title: "Fake News Prediction",
-    category: "ML application",
+    title: "quizzy",
+    category: "Full-stack quiz product",
     description:
-      "An end-to-end machine learning app that classifies whether a news headline or snippet is likely real or fake.",
-    outcome: "Highlights experimentation with NLP pipelines, model integration, and user-facing ML delivery.",
-    stack: ["Python", "Scikit-Learn", "Transformers", "NLP", "Streamlit"],
-    demoUrl: "https://fake-news-prediction-brp3oqtbdsj5jd9pithszn.streamlit.app/",
-    githubUrl: "https://github.com/aar0gya/fake-news-prediction",
+      "A mobile-responsive quiz game built with Flask, JavaScript, and SQLite featuring multiple subjects, animated UI, sound effects, and a persistent leaderboard.",
+    outcome: "Highlights full-stack interactivity, responsive design, game-like UX polish, and stateful leaderboard functionality.",
+    stack: ["JavaScript", "Python", "Flask", "SQLite", "Frontend", "Backend"],
+    demoUrl: "https://github.com/aar0gya/quizzy",
+    githubUrl: "https://github.com/aar0gya/quizzy",
   },
 ];
 
