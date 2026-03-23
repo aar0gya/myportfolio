@@ -75,7 +75,7 @@ const projects = [
       "A full-stack sneaker ecommerce platform built with React, Node.js, PostgreSQL, Stripe payments, Clerk authentication, an admin dashboard, and transactional emails.",
     outcome: "Shows end-to-end product delivery across storefront UX, payments, authentication, admin tooling, and production-style backend flows.",
     stack: ["React", "Node.js", "JavaScript", "Express", "Stripe", "PostgreSQL"],
-    demoUrl: "https://github.com/aar0gya/apex-kicks",
+    demoUrl: "https://apex-kicks.vercel.app/",
     githubUrl: "https://github.com/aar0gya/apex-kicks",
   },
   {
@@ -95,7 +95,7 @@ const projects = [
       "A mobile-responsive quiz game built with Flask, JavaScript, and SQLite featuring multiple subjects, animated UI, sound effects, and a persistent leaderboard.",
     outcome: "Highlights full-stack interactivity, responsive design, game-like UX polish, and stateful leaderboard functionality.",
     stack: ["JavaScript", "Python", "Flask", "SQLite", "Frontend", "Backend"],
-    demoUrl: "https://github.com/aar0gya/quizzy",
+    demoUrl: "https://quizzy-j6cz.onrender.com/",
     githubUrl: "https://github.com/aar0gya/quizzy",
   },
 ];
@@ -103,8 +103,8 @@ const projects = [
 const contactLinks = [
   {
     label: "Email",
-    value: "thapaaarogyabikram@gmail.com",
-    href: "mailto:thapaaarogyabikram@gmail.com",
+    value: "arogyathapa.10@gmail.com",
+    href: "mailto:arogyathapa.10@gmail.com",
     icon: Mail,
   },
   {
