@@ -226,6 +226,19 @@ export const Home = () => {
     window.localStorage.setItem("portfolio-theme", nextTheme);
   };
 
+  const handleMobileNavigation = (event, href) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    document.body.style.overflow = "";
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const target = document.querySelector(href);
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  };
+
   return (
     <div className="portfolio-shell">
       <div className="ambient ambient-one" aria-hidden="true" />
@@ -277,10 +290,24 @@ export const Home = () => {
       {menuOpen && (
         <div className="mobile-panel">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} className="mobile-link" onClick={() => setMenuOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              className="mobile-link"
+              onClick={(event) => handleMobileNavigation(event, item.href)}
+            >
               {item.label}
             </a>
           ))}
+          <a
+            className="mobile-resume"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMenuOpen(false)}
+          >
+            View Resume
+          </a>
         </div>
       )}
 

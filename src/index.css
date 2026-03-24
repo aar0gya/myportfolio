@@ -308,6 +308,20 @@
   transition: background-color 180ms ease, color 180ms ease;
 }
 
+.mobile-resume {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 10px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 78%, white), var(--primary));
+  color: #1f1208;
+  font-weight: 700;
+}
+
 .mobile-link:hover {
   background: var(--surface-soft);
   color: var(--heading);
