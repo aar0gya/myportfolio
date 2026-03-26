@@ -19,6 +19,7 @@ const navigation = [
   { label: "Intro", href: "#overview" },
   { label: "Work", href: "#portfolio" },
   { label: "About", href: "#about" },
+  { label: "Resume", href: "#resume" },
   { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
@@ -126,6 +127,18 @@ export const Home = () => {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
+    const root = document.documentElement;
+    const updateScroll = () => {
+      root.style.setProperty("--scroll-y", String(window.scrollY));
+    };
+
+    updateScroll();
+    window.addEventListener("scroll", updateScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateScroll);
+  }, []);
+
+  useEffect(() => {
     const storedTheme = window.localStorage.getItem("portfolio-theme");
     const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
     const initialTheme = storedTheme || (prefersLight ? "light" : "dark");
@@ -207,6 +220,9 @@ export const Home = () => {
 
   return (
     <div className="app-shell">
+      <div className="ambient ambient-one" aria-hidden="true" />
+      <div className="ambient ambient-two" aria-hidden="true" />
+      <div className="ambient ambient-three" aria-hidden="true" />
       <div className="page-frame">
         <header className="topbar">
           <a className="brand" href="#overview">
@@ -391,6 +407,36 @@ export const Home = () => {
                   )}
                 </div>
               </article>
+            </div>
+          </section>
+
+          <section id="resume" className="resume-layout" data-reveal>
+            <div className="resume-copy">
+              <p className="section-label">Resume</p>
+              <h2>A quick way to review my background, tools, and project experience.</h2>
+              <p className="section-copy">
+                If you prefer scanning a traditional resume first, you can view or download it here.
+                I’ve kept it easy to access directly from the website so it’s useful on both desktop and mobile.
+              </p>
+              <div className="resume-actions">
+                <a className="cta-button" href="/resume.pdf" target="_blank" rel="noreferrer">
+                  View Resume
+                </a>
+                <a className="ghost-button" href="/resume.pdf" download>
+                  Download PDF
+                </a>
+              </div>
+            </div>
+
+            <div className="resume-preview-wrap">
+              <div className="resume-preview-card">
+                <div className="resume-window-bar">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <iframe className="resume-frame" src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Resume preview" />
+              </div>
             </div>
           </section>
 
