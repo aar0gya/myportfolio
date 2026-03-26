@@ -243,6 +243,7 @@
   color: var(--primary);
 }
 
+.hero-subline,
 .hero-description,
 .section-copy,
 .info-card p,
@@ -251,6 +252,14 @@
 .contact-link small,
 .contact-link strong {
   color: var(--muted);
+}
+
+.hero-subline {
+  margin: 14px 0 0;
+  max-width: 36ch;
+  color: var(--heading);
+  font-size: 1.14rem;
+  line-height: 1.55;
 }
 
 .hero-description {
@@ -374,6 +383,7 @@
   justify-items: center;
   text-align: center;
   box-shadow: var(--shadow);
+  padding: 24px;
 }
 
 .portrait-caption {
@@ -439,6 +449,10 @@
   margin-bottom: 20px;
 }
 
+.section-heading.left {
+  margin-bottom: 14px;
+}
+
 .section-label {
   margin: 0 0 10px;
   color: var(--primary);
@@ -471,7 +485,7 @@
 .footer {
   border-radius: 22px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.025);
   box-shadow: var(--shadow);
 }
 
@@ -570,8 +584,9 @@
   margin-top: 18px;
   padding: 14px 16px;
   border-radius: 16px;
-  background: rgba(255, 138, 0, 0.08);
+  background: rgba(255, 138, 0, 0.06);
   border: 1px solid rgba(255, 138, 0, 0.16);
+  line-height: 1.7;
 }
 
 .contact-layout {
@@ -637,6 +652,12 @@
   background: var(--surface-soft);
   color: var(--heading);
   outline: none;
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  border-color: rgba(255, 138, 0, 0.42);
+  box-shadow: 0 0 0 4px rgba(255, 138, 0, 0.1);
 }
 
 .submit-button {

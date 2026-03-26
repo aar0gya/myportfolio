@@ -10,71 +10,70 @@ import {
   Menu,
   Moon,
   Phone,
-  Sparkles,
   SunMedium,
   X,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const navigation = [
-  { label: "Home", href: "#overview" },
+  { label: "Intro", href: "#overview" },
+  { label: "Work", href: "#portfolio" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "About Me", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Contact Me", href: "#contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "20+", label: "Projects Done" },
-  { value: "100%", label: "Recruiter-Focused" },
+  { value: "3+", label: "years building production-ready interfaces" },
+  { value: "3", label: "featured projects with live demos" },
+  { value: "React", label: "main frontend stack with full-stack support" },
 ];
 
 const serviceCards = [
   {
-    title: "Frontend Engineering",
-    text: "Responsive interfaces with strong hierarchy, motion, polish, and recruiter-ready presentation.",
+    title: "Frontend engineering",
+    text: "Responsive interfaces with strong hierarchy, clean interaction patterns, and a product-first visual approach.",
   },
   {
-    title: "Full-Stack Products",
-    text: "From APIs and databases to polished user flows, I build products that feel complete and credible.",
+    title: "Full-stack implementation",
+    text: "I can take ideas past the UI layer into APIs, databases, authentication flows, and deployment-ready structure.",
   },
   {
-    title: "UI/UX Execution",
-    text: "I bridge design taste and engineering detail so the final product looks intentional, not template-made.",
+    title: "UI refinement",
+    text: "I pay attention to spacing, pacing, readability, and the kind of polish that makes a website feel cared for.",
   },
 ];
 
 const aboutPoints = [
-  "Strong visual judgment with practical engineering discipline.",
-  "Comfortable shipping across React, Node.js, PostgreSQL, APIs, and responsive UI.",
-  "Focused on premium-feeling interfaces that help products stand out quickly.",
+  "I care about how a site feels in the first few seconds someone lands on it.",
+  "Most of my work starts with frontend structure, but I like owning the full experience where possible.",
+  "I prefer websites that feel clear, believable, and usable over ones that only try to look impressive.",
 ];
 
 const projects = [
   {
     title: "apex-kicks",
-    tag: "Ecommerce Platform",
+    tag: "Ecommerce platform",
     description:
-      "Full-stack sneaker ecommerce with React, Node.js, PostgreSQL, Stripe, Clerk auth, admin dashboard, and transactional flows.",
+      "A sneaker ecommerce product built with React, Node.js, PostgreSQL, Stripe, Clerk authentication, and an admin dashboard.",
     stack: ["React", "Node.js", "PostgreSQL", "Stripe", "Express"],
     demoUrl: "https://apex-kicks.vercel.app/",
     githubUrl: "https://github.com/aar0gya/apex-kicks",
   },
   {
     title: "Stock News Sentiment Analysis",
-    tag: "Data Product",
+    tag: "Data application",
     description:
-      "Python-based sentiment tracking app that scrapes Finviz headlines, analyzes with NLTK VADER, and visualizes trend signals.",
+      "A Python app that scrapes Finviz headlines, runs NLTK VADER sentiment analysis, and visualizes stock-related sentiment trends.",
     stack: ["Python", "Pandas", "NLTK", "Matplotlib", "Streamlit"],
     demoUrl: "https://stock-news-sentiment-analysis-fzx7qmxy27r8jt7immruik.streamlit.app/",
     githubUrl: "https://github.com/aar0gya/Stock-News-Sentiment-Analysis",
   },
   {
     title: "quizzy",
-    tag: "Interactive Quiz App",
+    tag: "Interactive quiz app",
     description:
-      "Mobile-responsive quiz game with Flask, JavaScript, SQLite, animated UI, sound effects, and a persistent leaderboard.",
+      "A mobile-responsive quiz game with Flask, JavaScript, SQLite, animated UI, sound effects, and a persistent leaderboard.",
     stack: ["JavaScript", "Python", "Flask", "SQLite", "Responsive UI"],
     demoUrl: "https://quizzy-j6cz.onrender.com/",
     githubUrl: "https://github.com/aar0gya/quizzy",
@@ -236,7 +235,7 @@ export const Home = () => {
               {theme === "dark" ? <SunMedium size={18} /> : <Moon size={18} />}
             </button>
             <a className="cta-button desktop-only" href="#contact">
-              Hire Me
+              Get in touch
             </a>
             <button
               type="button"
@@ -263,7 +262,7 @@ export const Home = () => {
               </a>
             ))}
             <a className="mobile-menu-resume" href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
-              Download CV
+              Resume
             </a>
           </div>
         )}
@@ -271,13 +270,14 @@ export const Home = () => {
         <main className="content">
           <section id="overview" className="hero" data-reveal>
             <div className="hero-copy">
-              <p className="hero-lead">Hi I am</p>
+              <p className="hero-lead">Hello, I'm</p>
               <p className="hero-name">Aarogya Bikram Thapa</p>
-              <h1>Frontend Product Developer</h1>
+              <h1>Frontend developer with a product mindset.</h1>
+              <p className="hero-subline">I care about clean interfaces, believable structure, and websites that feel thoughtfully made.</p>
               <p className="hero-description">
-                I build classy digital experiences that combine modern frontend craft,
-                full-stack capability, and a presentation style that feels professional,
-                credible, and recruiter-friendly.
+                My work is mostly frontend-focused, but I like taking responsibility for the
+                whole experience when needed, from visual direction and interaction details
+                to backend logic, APIs, and deployment.
               </p>
 
               <div className="hero-social-row">
@@ -292,11 +292,11 @@ export const Home = () => {
               </div>
 
               <div className="hero-actions">
-                <a className="cta-button" href="#contact">
-                  Hire Me
+                <a className="cta-button" href="#portfolio">
+                  View work
                 </a>
                 <a className="ghost-button" href="/resume.pdf" target="_blank" rel="noreferrer">
-                  Download CV
+                  Resume
                 </a>
               </div>
 
@@ -314,75 +314,28 @@ export const Home = () => {
               <div className="hero-orbit" />
               <div className="hero-portrait-card">
                 <div className="portrait-caption">ABT</div>
-                <div className="portrait-title">Frontend craft</div>
-                <div className="portrait-subtitle">UI polish • Product thinking • Full-stack execution</div>
+                <div className="portrait-title">Frontend, product, implementation</div>
+                <div className="portrait-subtitle">A practical builder who enjoys making digital work feel more complete.</div>
               </div>
               <div className="floating-note note-top">
-                <small>Current Focus</small>
-                <strong>Professional, product-grade interfaces</strong>
+                <small>Current focus</small>
+                <strong>Frontend-heavy product work with polished UX</strong>
               </div>
               <div className="floating-note note-bottom">
-                <small>Based In</small>
+                <small>Based in</small>
                 <strong>Bharatpur, Nepal</strong>
               </div>
             </div>
           </section>
 
-          <section id="services" className="section-grid">
-            <div className="section-heading" data-reveal>
-              <p className="section-label">Services</p>
-              <h2>What I bring to digital products.</h2>
-            </div>
-            <div className="cards-grid service-grid">
-              {serviceCards.map((item) => (
-                <article key={item.title} className="info-card" data-reveal>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section id="about" className="split-layout">
-            <div className="section-heading sticky-panel" data-reveal>
-              <p className="section-label">About me</p>
-              <h2>Built to stand out without losing professionalism.</h2>
-              <p className="section-copy">
-                I care about how products feel when someone lands on them for the first
-                time. That means clearer hierarchy, sharper visuals, better responsiveness,
-                and a stronger overall impression.
-              </p>
-            </div>
-
-            <div className="stack-column">
-              <article className="wide-card" data-reveal>
-                <p className="mini-label">Why this works</p>
-                <div className="points-list">
-                  {aboutPoints.map((point) => (
-                    <p key={point}>{point}</p>
-                  ))}
-                </div>
-              </article>
-
-              <article className="wide-card" data-reveal>
-                <p className="mini-label">Core strengths</p>
-                <div className="skill-badges">
-                  {["React", "Node.js", "Tailwind CSS", "PostgreSQL", "Responsive UI", "APIs", "Product UI", "Deployment"].map(
-                    (item) => (
-                      <span key={item} className="badge">
-                        {item}
-                      </span>
-                    )
-                  )}
-                </div>
-              </article>
-            </div>
-          </section>
-
           <section id="portfolio" className="section-grid">
             <div className="section-heading" data-reveal>
-              <p className="section-label">Portfolio</p>
-              <h2>Selected work that reflects product thinking and execution.</h2>
+              <p className="section-label">Work</p>
+              <h2>Some projects that represent how I like to build.</h2>
+              <p className="section-copy">
+                These are the kinds of projects where I’ve been able to combine interface quality,
+                practical development, and stronger presentation.
+              </p>
             </div>
             <div className="cards-grid project-grid">
               {projects.map((project) => (
@@ -406,11 +359,65 @@ export const Home = () => {
             </div>
           </section>
 
+          <section id="about" className="split-layout">
+            <div className="section-heading sticky-panel" data-reveal>
+              <p className="section-label">About</p>
+              <h2>I’m most interested in work that feels useful, clear, and well put together.</h2>
+              <p className="section-copy">
+                I like websites that read naturally, guide people well, and give the sense that
+                someone actually thought through the details rather than assembling generic sections.
+              </p>
+            </div>
+
+            <div className="stack-column">
+              <article className="wide-card" data-reveal>
+                <p className="mini-label">How I think about the work</p>
+                <div className="points-list">
+                  {aboutPoints.map((point) => (
+                    <p key={point}>{point}</p>
+                  ))}
+                </div>
+              </article>
+
+              <article className="wide-card" data-reveal>
+                <p className="mini-label">Tools I use often</p>
+                <div className="skill-badges">
+                  {["React", "Node.js", "Tailwind CSS", "PostgreSQL", "Responsive UI", "APIs", "Product UI", "Deployment"].map(
+                    (item) => (
+                      <span key={item} className="badge">
+                        {item}
+                      </span>
+                    )
+                  )}
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="services" className="section-grid">
+            <div className="section-heading" data-reveal>
+              <p className="section-label">Services</p>
+              <h2>The kind of work I usually do best.</h2>
+            </div>
+            <div className="cards-grid service-grid">
+              {serviceCards.map((item) => (
+                <article key={item.title} className="info-card" data-reveal>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section id="contact" className="contact-layout">
             <div className="contact-card" data-reveal>
               <div className="section-heading left">
-                <p className="section-label">Contact me</p>
-                <h2>Open to full-time roles, internships, and freelance opportunities.</h2>
+                <p className="section-label">Contact</p>
+                <h2>Open to roles, internships, and freelance projects.</h2>
+                <p className="section-copy">
+                  If you're looking for someone who cares about frontend quality and can also
+                  help carry the product through implementation, feel free to reach out.
+                </p>
               </div>
               <div className="contact-links">
                 {contactLinks.map((item) => {
@@ -441,10 +448,10 @@ export const Home = () => {
               </label>
               <label>
                 Message
-                <textarea name="message" rows="5" placeholder="Tell me about the role or the product." required />
+                <textarea name="message" rows="5" placeholder="Tell me a bit about the role or the project." required />
               </label>
               <button type="submit" className="cta-button submit-button">
-                Start Conversation
+                Start conversation
                 <ArrowUpRight size={16} />
               </button>
             </form>
@@ -453,7 +460,7 @@ export const Home = () => {
           <footer className="footer" data-reveal>
             <div>
               <p className="section-label">Aarogya Bikram Thapa</p>
-              <h2>Classy interfaces, stronger first impressions, and product-ready execution.</h2>
+              <h2>Frontend-focused work shaped by product thinking, clean visuals, and solid execution.</h2>
             </div>
             <div className="footer-links">
               {socialLinks.map((item) => {
