@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
-  Briefcase,
-  Code2,
   ExternalLink,
   Github,
   Instagram,
@@ -20,81 +18,63 @@ import { useToast } from "@/hooks/use-toast";
 
 const navigation = [
   { label: "Home", href: "#overview" },
-  { label: "Why Me", href: "#proof" },
-  { label: "Skills", href: "#capabilities" },
-  { label: "Portfolio", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "#services" },
+  { label: "About Me", href: "#about" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Contact Me", href: "#contact" },
 ];
 
-const metrics = [
-  { value: "3+", label: "Years building polished web experiences" },
-  { value: "3", label: "Featured products with live execution" },
-  { value: "10+", label: "Modern tools across frontend and backend" },
+const stats = [
+  { value: "3+", label: "Years Experience" },
+  { value: "20+", label: "Projects Done" },
+  { value: "100%", label: "Recruiter-Focused" },
 ];
 
-const strengths = [
+const serviceCards = [
   {
-    title: "Recruiter-friendly presentation",
-    text: "I build interfaces that communicate clearly, look credible, and make products easier to trust in seconds.",
+    title: "Frontend Engineering",
+    text: "Responsive interfaces with strong hierarchy, motion, polish, and recruiter-ready presentation.",
   },
   {
-    title: "Frontend craft with polish",
-    text: "Strong focus on hierarchy, responsiveness, interaction detail, and visual systems that feel intentional.",
+    title: "Full-Stack Products",
+    text: "From APIs and databases to polished user flows, I build products that feel complete and credible.",
   },
   {
-    title: "Full-stack execution",
-    text: "Comfortable shipping across React, Node.js, APIs, databases, authentication, and product workflows.",
-  },
-];
-
-const capabilityGroups = [
-  {
-    label: "Frontend systems",
-    items: ["React", "JavaScript", "TypeScript", "Tailwind CSS", "Next.js", "Vite"],
-  },
-  {
-    label: "Backend delivery",
-    items: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs", "Socket.io"],
-  },
-  {
-    label: "Product workflow",
-    items: ["Git/GitHub", "Docker", "Figma", "Responsive Design", "UI Systems", "Deployment"],
+    title: "UI/UX Execution",
+    text: "I bridge design taste and engineering detail so the final product looks intentional, not template-made.",
   },
 ];
 
-const recruiterNotes = [
-  "Delivers clean UI with strong visual judgment.",
-  "Comfortable moving between design polish and engineering detail.",
-  "Builds portfolio work that already feels product-ready.",
+const aboutPoints = [
+  "Strong visual judgment with practical engineering discipline.",
+  "Comfortable shipping across React, Node.js, PostgreSQL, APIs, and responsive UI.",
+  "Focused on premium-feeling interfaces that help products stand out quickly.",
 ];
 
 const projects = [
   {
     title: "apex-kicks",
-    category: "Full-stack ecommerce",
+    tag: "Ecommerce Platform",
     description:
-      "A sneaker ecommerce platform built with React, Node.js, PostgreSQL, Stripe payments, Clerk authentication, an admin dashboard, and transactional emails.",
-    outcome: "Demonstrates real product architecture across storefront UX, checkout, auth, admin tooling, and backend operations.",
-    stack: ["React", "Node.js", "Express", "Stripe", "PostgreSQL"],
+      "Full-stack sneaker ecommerce with React, Node.js, PostgreSQL, Stripe, Clerk auth, admin dashboard, and transactional flows.",
+    stack: ["React", "Node.js", "PostgreSQL", "Stripe", "Express"],
     demoUrl: "https://apex-kicks.vercel.app/",
     githubUrl: "https://github.com/aar0gya/apex-kicks",
   },
   {
     title: "Stock News Sentiment Analysis",
-    category: "Data-driven application",
+    tag: "Data Product",
     description:
-      "A Python workflow that scrapes Finviz headlines, scores sentiment with NLTK VADER, and visualizes ticker-level trends.",
-    outcome: "Shows analytical thinking, automation, and the ability to turn raw inputs into understandable insights.",
+      "Python-based sentiment tracking app that scrapes Finviz headlines, analyzes with NLTK VADER, and visualizes trend signals.",
     stack: ["Python", "Pandas", "NLTK", "Matplotlib", "Streamlit"],
     demoUrl: "https://stock-news-sentiment-analysis-fzx7qmxy27r8jt7immruik.streamlit.app/",
     githubUrl: "https://github.com/aar0gya/Stock-News-Sentiment-Analysis",
   },
   {
     title: "quizzy",
-    category: "Interactive full-stack quiz",
+    tag: "Interactive Quiz App",
     description:
-      "A mobile-responsive quiz game built with Flask, JavaScript, and SQLite featuring multiple subjects, animated UI, sound effects, and a persistent leaderboard.",
-    outcome: "Highlights responsive interaction design, stateful features, and strong end-to-end execution for a playful product.",
+      "Mobile-responsive quiz game with Flask, JavaScript, SQLite, animated UI, sound effects, and a persistent leaderboard.",
     stack: ["JavaScript", "Python", "Flask", "SQLite", "Responsive UI"],
     demoUrl: "https://quizzy-j6cz.onrender.com/",
     githubUrl: "https://github.com/aar0gya/quizzy",
@@ -147,21 +127,9 @@ export const Home = () => {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const root = document.documentElement;
-    const updateScroll = () => {
-      root.style.setProperty("--scroll-y", `${window.scrollY}`);
-    };
-
-    updateScroll();
-    window.addEventListener("scroll", updateScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", updateScroll);
-  }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
     const storedTheme = window.localStorage.getItem("portfolio-theme");
-    const initialTheme = storedTheme || (mediaQuery.matches ? "light" : "dark");
+    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const initialTheme = storedTheme || (prefersLight ? "light" : "dark");
 
     setTheme(initialTheme);
     document.documentElement.dataset.theme = initialTheme;
@@ -169,7 +137,6 @@ export const Home = () => {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -177,7 +144,7 @@ export const Home = () => {
 
   useEffect(() => {
     const revealElements = document.querySelectorAll("[data-reveal]");
-    const sectionElements = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id]");
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -202,11 +169,11 @@ export const Home = () => {
     );
 
     revealElements.forEach((element) => revealObserver.observe(element));
-    sectionElements.forEach((element) => sectionObserver.observe(element));
+    sections.forEach((element) => sectionObserver.observe(element));
 
     return () => {
       revealElements.forEach((element) => revealObserver.unobserve(element));
-      sectionElements.forEach((element) => sectionObserver.unobserve(element));
+      sections.forEach((element) => sectionObserver.unobserve(element));
     };
   }, []);
 
@@ -240,45 +207,40 @@ export const Home = () => {
   };
 
   return (
-    <div className="portfolio-shell">
-      <div className="ambient ambient-left" aria-hidden="true" />
-      <div className="ambient ambient-right" aria-hidden="true" />
-      <div className="grain-overlay" aria-hidden="true" />
-
-      <div className="portfolio-frame">
-        <header className="site-header">
-          <a className="brand-mark" href="#overview">
-            <span className="brand-dot" />
-            ABT
+    <div className="app-shell">
+      <div className="page-frame">
+        <header className="topbar">
+          <a className="brand" href="#overview">
+            <span className="brand-accent">ABT</span>
           </a>
 
-          <nav className="desktop-nav" aria-label="Primary">
+          <nav className="nav desktop-nav" aria-label="Primary">
             {navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={activeSection === item.href.slice(1) ? "nav-link active" : "nav-link"}
+                className={activeSection === item.href.slice(1) ? "nav-item active" : "nav-item"}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="header-actions">
+          <div className="topbar-actions">
             <button
               type="button"
-              className="theme-toggle"
+              className="icon-button"
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
               {theme === "dark" ? <SunMedium size={18} /> : <Moon size={18} />}
             </button>
-            <a className="button button-primary desktop-cta" href="#contact">
+            <a className="cta-button desktop-only" href="#contact">
               Hire Me
             </a>
             <button
               type="button"
-              className="menu-toggle"
+              className="icon-button mobile-only"
               onClick={() => setMenuOpen((open) => !open)}
               aria-label="Toggle navigation"
               aria-expanded={menuOpen}
@@ -289,46 +251,40 @@ export const Home = () => {
         </header>
 
         {menuOpen && (
-          <div className="mobile-panel">
+          <div className="mobile-menu">
             {navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="mobile-link"
+                className="mobile-menu-link"
                 onClick={(event) => handleMobileNavigation(event, item.href)}
               >
                 {item.label}
               </a>
             ))}
-            <a className="mobile-resume" href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
-              Download Resume
+            <a className="mobile-menu-resume" href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+              Download CV
             </a>
           </div>
         )}
 
-        <main className="page-content">
-          <section id="overview" className="hero-section">
-            <div className="hero-copy" data-reveal>
-              <p className="eyebrow">
-                <Sparkles size={14} />
-                Frontend & Full-Stack Developer
-              </p>
-              <p className="hero-intro">Hi, I am</p>
-              <h1>
-                Aarogya Bikram
-                <span> Thapa</span>
-              </h1>
-              <h2 className="hero-role">Building classy digital products with strong UI judgment and real engineering depth.</h2>
-              <p className="hero-text">
-                I design and develop recruiter-friendly web experiences that feel premium,
-                perform smoothly, and present products with clarity, confidence, and polish.
+        <main className="content">
+          <section id="overview" className="hero" data-reveal>
+            <div className="hero-copy">
+              <p className="hero-lead">Hi I am</p>
+              <p className="hero-name">Aarogya Bikram Thapa</p>
+              <h1>Frontend Product Developer</h1>
+              <p className="hero-description">
+                I build classy digital experiences that combine modern frontend craft,
+                full-stack capability, and a presentation style that feels professional,
+                credible, and recruiter-friendly.
               </p>
 
-              <div className="hero-socials">
+              <div className="hero-social-row">
                 {socialLinks.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="social-orb" aria-label={item.label}>
+                    <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="social-chip" aria-label={item.label}>
                       <Icon size={18} />
                     </a>
                   );
@@ -336,56 +292,50 @@ export const Home = () => {
               </div>
 
               <div className="hero-actions">
-                <a className="button button-primary" href="#contact">
+                <a className="cta-button" href="#contact">
                   Hire Me
                 </a>
-                <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noreferrer">
+                <a className="ghost-button" href="/resume.pdf" target="_blank" rel="noreferrer">
                   Download CV
                 </a>
               </div>
-            </div>
 
-            <div className="hero-stage" data-reveal>
-              <div className="portrait-shell">
-                <div className="portrait-ring" />
-                <div className="portrait-core">
-                  <div className="monogram">ABT</div>
-                  <p>Frontend craft</p>
-                  <p>Full-stack range</p>
-                </div>
+              <div className="stats-panel">
+                {stats.map((item) => (
+                  <article key={item.label} className="stat-block">
+                    <strong>{item.value}</strong>
+                    <span>{item.label}</span>
+                  </article>
+                ))}
               </div>
+            </div>
 
-              <article className="stage-card top-card">
-                <small>Primary Focus</small>
-                <strong>Professional UI/UX for modern products</strong>
-              </article>
-
-              <article className="stage-card bottom-card">
+            <div className="hero-visual">
+              <div className="hero-orbit" />
+              <div className="hero-portrait-card">
+                <div className="portrait-caption">ABT</div>
+                <div className="portrait-title">Frontend craft</div>
+                <div className="portrait-subtitle">UI polish • Product thinking • Full-stack execution</div>
+              </div>
+              <div className="floating-note note-top">
+                <small>Current Focus</small>
+                <strong>Professional, product-grade interfaces</strong>
+              </div>
+              <div className="floating-note note-bottom">
                 <small>Based In</small>
-                <strong>Bharatpur, Chitwan, Nepal</strong>
-              </article>
+                <strong>Bharatpur, Nepal</strong>
+              </div>
             </div>
           </section>
 
-          <section className="metrics-bar" data-reveal>
-            {metrics.map((metric) => (
-              <article key={metric.label} className="metric-item">
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </article>
-            ))}
-          </section>
-
-          <section id="proof" className="content-section">
+          <section id="services" className="section-grid">
             <div className="section-heading" data-reveal>
-              <p className="section-kicker">Why recruiters notice it</p>
-              <h2>A portfolio designed to communicate value before the first interview.</h2>
+              <p className="section-label">Services</p>
+              <h2>What I bring to digital products.</h2>
             </div>
-
-            <div className="feature-grid">
-              {strengths.map((item, index) => (
-                <article key={item.title} className="feature-card" data-reveal>
-                  <span className="feature-index">0{index + 1}</span>
+            <div className="cards-grid service-grid">
+              {serviceCards.map((item) => (
+                <article key={item.title} className="info-card" data-reveal>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -393,103 +343,80 @@ export const Home = () => {
             </div>
           </section>
 
-          <section id="capabilities" className="content-section split-section">
-            <div className="section-heading sticky-heading" data-reveal>
-              <p className="section-kicker">Capabilities</p>
-              <h2>Design sensitivity paired with hands-on delivery.</h2>
-              <p className="section-text">
-                I work best where product presentation matters as much as implementation.
-                That means sharper UI, cleaner communication, and more trustworthy digital experiences.
+          <section id="about" className="split-layout">
+            <div className="section-heading sticky-panel" data-reveal>
+              <p className="section-label">About me</p>
+              <h2>Built to stand out without losing professionalism.</h2>
+              <p className="section-copy">
+                I care about how products feel when someone lands on them for the first
+                time. That means clearer hierarchy, sharper visuals, better responsiveness,
+                and a stronger overall impression.
               </p>
             </div>
 
-            <div className="capability-column">
-              {capabilityGroups.map((group) => (
-                <article key={group.label} className="capability-card" data-reveal>
-                  <div className="capability-title">
-                    <Code2 size={18} />
-                    <h3>{group.label}</h3>
-                  </div>
-                  <div className="chip-row">
-                    {group.items.map((item) => (
-                      <span key={item} className="chip">
+            <div className="stack-column">
+              <article className="wide-card" data-reveal>
+                <p className="mini-label">Why this works</p>
+                <div className="points-list">
+                  {aboutPoints.map((point) => (
+                    <p key={point}>{point}</p>
+                  ))}
+                </div>
+              </article>
+
+              <article className="wide-card" data-reveal>
+                <p className="mini-label">Core strengths</p>
+                <div className="skill-badges">
+                  {["React", "Node.js", "Tailwind CSS", "PostgreSQL", "Responsive UI", "APIs", "Product UI", "Deployment"].map(
+                    (item) => (
+                      <span key={item} className="badge">
                         {item}
                       </span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-
-              <article className="notes-card" data-reveal>
-                <div className="capability-title">
-                  <Briefcase size={18} />
-                  <h3>Recruiter notes</h3>
-                </div>
-                <div className="note-list">
-                  {recruiterNotes.map((note) => (
-                    <p key={note}>{note}</p>
-                  ))}
+                    )
+                  )}
                 </div>
               </article>
             </div>
           </section>
 
-          <section id="projects" className="content-section">
+          <section id="portfolio" className="section-grid">
             <div className="section-heading" data-reveal>
-              <p className="section-kicker">Portfolio</p>
-              <h2>Selected projects that show polish, ownership, and product thinking.</h2>
+              <p className="section-label">Portfolio</p>
+              <h2>Selected work that reflects product thinking and execution.</h2>
             </div>
-
-            <div className="project-stack">
+            <div className="cards-grid project-grid">
               {projects.map((project) => (
                 <article key={project.title} className="project-card" data-reveal>
-                  <div className="project-topline">
-                    <span>{project.category}</span>
-                    <div className="project-links">
+                  <div className="project-header">
+                    <span>{project.tag}</span>
+                    <div className="project-actions">
                       <a href={project.demoUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} demo`}>
                         <ExternalLink size={18} />
                       </a>
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Open ${project.title} repository`}
-                      >
+                      <a href={project.githubUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repo`}>
                         <Github size={18} />
                       </a>
                     </div>
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="project-outcome">{project.outcome}</div>
-                  <div className="chip-row">
-                    {project.stack.map((item) => (
-                      <span key={item} className="chip">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+                  <div className="project-highlight">{project.stack.join(" • ")}</div>
                 </article>
               ))}
             </div>
           </section>
 
-          <section id="contact" className="content-section contact-section">
-            <div className="contact-panel" data-reveal>
-              <div className="section-heading left-aligned">
-                <p className="section-kicker">Contact me</p>
-                <h2>Open to internships, freelance work, and full-time opportunities.</h2>
-                <p className="section-text">
-                  If you’re hiring for frontend-heavy product work, full-stack execution,
-                  or a portfolio-ready design mindset, I’d be glad to connect.
-                </p>
+          <section id="contact" className="contact-layout">
+            <div className="contact-card" data-reveal>
+              <div className="section-heading left">
+                <p className="section-label">Contact me</p>
+                <h2>Open to full-time roles, internships, and freelance opportunities.</h2>
               </div>
-
-              <div className="contact-list">
+              <div className="contact-links">
                 {contactLinks.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <a key={item.label} href={item.href} className="contact-item" target="_blank" rel="noreferrer">
+                    <a key={item.label} href={item.href} className="contact-link" target="_blank" rel="noreferrer">
                       <span className="contact-icon">
                         <Icon size={18} />
                       </span>
@@ -503,7 +430,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <form className="message-card" onSubmit={handleFormSubmit} data-reveal>
+            <form className="form-card" onSubmit={handleFormSubmit} data-reveal>
               <label>
                 Name
                 <input type="text" name="name" placeholder="Your name" required />
@@ -513,36 +440,26 @@ export const Home = () => {
                 <input type="email" name="email" placeholder="you@example.com" required />
               </label>
               <label>
-                Opportunity
-                <input type="text" name="opportunity" placeholder="Role, project, or collaboration" required />
-              </label>
-              <label>
                 Message
-                <textarea
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me a bit about the role or what you're building."
-                  required
-                />
+                <textarea name="message" rows="5" placeholder="Tell me about the role or the product." required />
               </label>
-              <button type="submit" className="button button-primary submit-button">
-                Start the conversation
+              <button type="submit" className="cta-button submit-button">
+                Start Conversation
                 <ArrowUpRight size={16} />
               </button>
             </form>
           </section>
 
-          <footer className="site-footer" data-reveal>
-            <div className="footer-copy">
-              <p className="footer-kicker">Aarogya Bikram Thapa</p>
-              <h2>Classy interfaces, thoughtful frontend work, and full-stack execution that feels product-ready.</h2>
+          <footer className="footer" data-reveal>
+            <div>
+              <p className="section-label">Aarogya Bikram Thapa</p>
+              <h2>Classy interfaces, stronger first impressions, and product-ready execution.</h2>
             </div>
-
             <div className="footer-links">
               {socialLinks.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="footer-social">
+                  <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="footer-link">
                     <Icon size={18} />
                     {item.label}
                   </a>
