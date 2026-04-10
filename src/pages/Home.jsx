@@ -349,7 +349,7 @@ export const Home = () => {
               <p className="section-label">Work</p>
               <h2>Some projects that represent how I like to build.</h2>
               <p className="section-copy">
-                These are the kinds of projects where I’ve been able to combine interface quality,
+                These are the kinds of projects where I've been able to combine interface quality,
                 practical development, and stronger presentation.
               </p>
             </div>
@@ -378,7 +378,7 @@ export const Home = () => {
           <section id="about" className="split-layout">
             <div className="section-heading sticky-panel" data-reveal>
               <p className="section-label">About</p>
-              <h2>I’m most interested in work that feels useful, clear, and well put together.</h2>
+              <h2>I'm most interested in work that feels useful, clear, and well put together.</h2>
               <p className="section-copy">
                 I like websites that read naturally, guide people well, and give the sense that
                 someone actually thought through the details rather than assembling generic sections.
@@ -416,7 +416,7 @@ export const Home = () => {
               <h2>A quick way to review my background, tools, and project experience.</h2>
               <p className="section-copy">
                 If you prefer scanning a traditional resume first, you can view or download it here.
-                I’ve kept it easy to access directly from the website so it’s useful on both desktop and mobile.
+                I've kept it easy to access directly from the website so it's useful on both desktop and mobile.
               </p>
               <div className="resume-actions">
                 <a className="cta-button" href="/resume.pdf" target="_blank" rel="noreferrer">
