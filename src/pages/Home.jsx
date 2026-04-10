@@ -287,10 +287,10 @@ export const Home = () => {
       <div className="page-frame">
         <header className="topbar">
           <a className="brand" href="#overview">
-            <span className="brand-mark">ABT</span>
+            <span className="brand-mark">A</span>
             <span className="brand-meta">
               <strong>Aarogya Bikram Thapa</strong>
-              <small>Frontend Developer</small>
+              <small>Portfolio</small>
             </span>
           </a>
 
@@ -410,23 +410,19 @@ export const Home = () => {
                   <span className="status-dot" />
                   Available for opportunities
                 </div>
-                <div className="profile-monogram">ABT</div>
-                <h2>Frontend systems, visual polish, and full-stack support.</h2>
-                <p>I like shipping interfaces that feel considered rather than assembled.</p>
+                <div className="profile-monogram">A</div>
+                <h2>Minimal interfaces with strong detail and thoughtful product execution.</h2>
+                <p>Clean visuals, clear hierarchy, and frontend work that feels quietly premium.</p>
               </div>
 
-              <div className="floating-note note-top">
-                <small>Current focus</small>
-                <strong>Product-grade UI with strong implementation detail</strong>
+              <div className="floating-panel note-top" aria-hidden="true">
+                <span className="panel-dot" />
+                <span className="panel-line short" />
+                <span className="panel-line" />
+                <span className="panel-line long" />
               </div>
-              <div className="floating-note note-middle">
-                <small>Primary tools</small>
-                <strong>React, Tailwind CSS, Node.js, PostgreSQL</strong>
-              </div>
-              <div className="floating-note note-bottom">
-                <small>Based in</small>
-                <strong>Bharatpur, Nepal</strong>
-              </div>
+              <div className="floating-orb orb-top" aria-hidden="true" />
+              <div className="floating-orb orb-bottom" aria-hidden="true" />
             </div>
           </section>
 
