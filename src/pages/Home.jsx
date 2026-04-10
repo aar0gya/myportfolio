@@ -35,6 +35,12 @@ const quickFacts = [
   "Based in Bharatpur, Nepal and available remotely",
 ];
 
+const aboutPoints = [
+  "I enjoy turning rough concepts into interfaces that feel clear, useful, and polished.",
+  "I care about visual hierarchy, spacing, responsiveness, and the small details that make products feel trustworthy.",
+  "My best work usually sits between frontend craft and practical product delivery, where design quality and implementation both matter.",
+];
+
 const stats = [
   { value: "3+", label: "years building modern interfaces" },
   { value: "3", label: "featured projects with live demos" },
@@ -453,7 +459,7 @@ export const Home = () => {
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
                   <div className="project-outcome">{project.outcome}</div>
-                  <div className="project-highlight">{project.stack.join(" • ")}</div>
+                  <div className="project-highlight">{project.stack.join(" / ")}</div>
                 </article>
               ))}
             </div>
@@ -462,7 +468,7 @@ export const Home = () => {
           <section id="about" className="split-layout">
             <div className="section-heading sticky-panel" data-reveal>
               <p className="section-label">About</p>
-              <h2>I’m most interested in work that feels useful, clear, and well put together.</h2>
+              <h2>I'm most interested in work that feels useful, clear, and well put together.</h2>
               <p className="section-copy">
                 I like websites that guide people naturally, communicate clearly, and give the sense that someone truly thought through the details.
               </p>
@@ -505,7 +511,7 @@ export const Home = () => {
               <p className="section-label">Resume</p>
               <h2>A direct way to review my background, tools, and project experience.</h2>
               <p className="section-copy">
-                If you prefer scanning a traditional resume first, you can view or download it here. I’ve kept it visible inside the website so it’s easy to access on both desktop and mobile.
+                If you prefer scanning a traditional resume first, you can view or download it here. I've kept it visible inside the website so it's easy to access on both desktop and mobile.
               </p>
               <div className="resume-points">
                 {resumeHighlights.map((point) => (
