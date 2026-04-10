@@ -183,6 +183,9 @@ export const Home = () => {
     const root = document.documentElement;
     const updateScroll = () => {
       root.style.setProperty("--scroll-y", String(window.scrollY));
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      root.style.setProperty("--scroll-progress", progress.toFixed(4));
     };
 
     updateScroll();
@@ -273,10 +276,13 @@ export const Home = () => {
 
   return (
     <div className="app-shell">
+      <div className="scroll-progress" aria-hidden="true" />
       <div className="ambient ambient-one" aria-hidden="true" />
       <div className="ambient ambient-two" aria-hidden="true" />
       <div className="ambient ambient-three" aria-hidden="true" />
+      <div className="ambient ambient-four" aria-hidden="true" />
       <div className="grain-overlay" aria-hidden="true" />
+      <div className="scan-lines" aria-hidden="true" />
 
       <div className="page-frame">
         <header className="topbar">
@@ -610,38 +616,71 @@ export const Home = () => {
             </form>
           </section>
 
-          <footer className="footer" data-reveal>
+        </main>
+      </div>
+
+      <footer className="footer-band" data-reveal>
+        <div className="footer-inner">
+          <div className="footer-topline">
+            <p className="section-label">Let's build something that feels sharp, useful, and memorable.</p>
+            <a className="cta-button footer-cta" href="#contact">
+              Start a conversation
+              <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div className="footer">
             <div className="footer-brand">
               <p className="section-label">Aarogya Bikram Thapa</p>
-              <h2>Frontend-focused work shaped by product thinking, clean visuals, and solid execution.</h2>
+              <h2>Frontend-focused work shaped by product thinking, sharper visuals, and reliable execution.</h2>
+              <p className="footer-copy">
+                I build interfaces that help people understand the product quickly and trust what they see while still feeling modern and carefully made.
+              </p>
+              <div className="footer-socials">
+                {socialLinks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="social-chip" aria-label={item.label}>
+                      <Icon size={18} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="footer-columns">
               <div className="footer-column">
-                <h3>Quick Links</h3>
-                <a href="#portfolio">Work</a>
+                <h3>Explore</h3>
+                <a href="#overview">Overview</a>
+                <a href="#portfolio">Selected Work</a>
                 <a href="#about">About</a>
                 <a href="#resume">Resume</a>
-                <a href="#contact">Contact</a>
               </div>
               <div className="footer-column">
-                <h3>Connect</h3>
-                {socialLinks.map((item) => (
-                  <a key={item.label} href={item.href} target="_blank" rel="noreferrer">
-                    {item.label}
-                  </a>
-                ))}
+                <h3>Work Style</h3>
+                <span>Recruiter-friendly presentation</span>
+                <span>Responsive frontend systems</span>
+                <span>UI polish with practical implementation</span>
+                <span>Remote-ready collaboration</span>
               </div>
               <div className="footer-column">
-                <h3>Contact</h3>
+                <h3>Reach Out</h3>
                 <a href="mailto:arogyathapa.10@gmail.com">arogyathapa.10@gmail.com</a>
                 <a href="tel:+9779844630082">+977 9844630082</a>
                 <span>Bharatpur, Nepal</span>
+                <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                  View Resume
+                </a>
               </div>
             </div>
-          </footer>
-        </main>
-      </div>
+
+            <div className="footer-bottom">
+              <span>Designed and developed to feel intentional, polished, and human-made.</span>
+              <span>Available for frontend roles, internships, and freelance work.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
