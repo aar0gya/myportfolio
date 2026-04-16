@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -219,6 +219,7 @@ const socialLinks = [
 
 export const Home = () => {
   const { toast } = useToast();
+  const topbarRef = useRef(null);
   const [activeSection, setActiveSection] = useState("overview");
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
@@ -304,7 +305,16 @@ export const Home = () => {
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         const target = document.querySelector(href);
-        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+        const headerHeight = topbarRef.current?.getBoundingClientRect().height || 0;
+
+        if (target) {
+          const targetTop = target.getBoundingClientRect().top + window.scrollY;
+          const offset = headerHeight + 34;
+          window.scrollTo({
+            top: Math.max(targetTop - offset, 0),
+            behavior: "smooth",
+          });
+        }
       });
     });
   };
@@ -329,7 +339,7 @@ export const Home = () => {
       <div className="scan-lines" aria-hidden="true" />
 
       <div className="page-frame">
-        <header className="topbar">
+        <header className="topbar" ref={topbarRef}>
           <a className="brand" href="#overview">
             <span className="brand-mark">A</span>
             <span className="brand-meta">
@@ -379,27 +389,6 @@ export const Home = () => {
             </button>
           </div>
         </header>
-
-        {menuOpen && (
-          <div className="mobile-menu">
-            <a href="#overview" className="mobile-menu-link" onClick={(event) => handleMobileNavigation(event, "#overview")}>
-              Overview
-            </a>
-            {navigation.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="mobile-menu-link"
-                onClick={(event) => handleMobileNavigation(event, item.href)}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a className="mobile-menu-resume" href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
-              View Resume
-            </a>
-          </div>
-        )}
 
         <main className="content">
           <section id="overview" className="hero" data-reveal>
@@ -471,8 +460,18 @@ export const Home = () => {
 
                 <div className="floating-panel note-top" data-reveal>
                   <small>Current focus</small>
-                  <strong>Recruiter-ready frontend work with stronger clarity and presentation.</strong>
-                  <p>Open to internships, junior frontend roles, and collaborative product work.</p>
+                  <strong>Interfaces that feel calm, premium, and easy to understand.</strong>
+                  <p>Clear structure, cleaner flow, and stronger visual rhythm from the first screen onward.</p>
+                </div>
+                <div className="floating-panel note-middle" data-reveal>
+                  <small>What I bring</small>
+                  <strong>Frontend craft with product awareness and practical implementation.</strong>
+                  <p>I enjoy making digital work feel more consistent, usable, and presentation-ready.</p>
+                </div>
+                <div className="floating-panel note-bottom" data-reveal>
+                  <small>Open to</small>
+                  <strong>Internships, junior roles, and collaborative product opportunities.</strong>
+                  <p>Especially teams that value detail, momentum, and thoughtful feedback.</p>
                 </div>
                 <div className="floating-orb orb-top" aria-hidden="true" />
                 <div className="floating-orb orb-bottom" aria-hidden="true" />
@@ -708,6 +707,30 @@ export const Home = () => {
 
         </main>
       </div>
+
+      {menuOpen && (
+        <div className="mobile-menu-layer">
+          <button type="button" className="mobile-menu-backdrop" aria-label="Close navigation menu" onClick={() => setMenuOpen(false)} />
+          <div className="mobile-menu" role="dialog" aria-label="Mobile navigation">
+            <a href="#overview" className="mobile-menu-link" onClick={(event) => handleMobileNavigation(event, "#overview")}>
+              Overview
+            </a>
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="mobile-menu-link"
+                onClick={(event) => handleMobileNavigation(event, item.href)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a className="mobile-menu-resume" href="/resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+              View Resume
+            </a>
+          </div>
+        </div>
+      )}
 
       <footer className="footer-band" data-reveal>
         <div className="footer-inner">
