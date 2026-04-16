@@ -573,24 +573,6 @@
   animation: slow-spin-reverse 20s linear infinite;
 }
 
-.hero-profile-card {
-  position: relative;
-  width: min(80%, 420px);
-  min-height: 520px;
-  padding: 26px;
-  border-radius: 34px;
-  border: 1px solid var(--line-strong);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(14, 19, 36, 0.96), rgba(10, 14, 28, 0.96));
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  text-align: center;
-  box-shadow: var(--shadow);
-  animation: float-card 7s ease-in-out infinite;
-}
-
 .profile-badge {
   display: inline-flex;
   align-items: center;
@@ -611,47 +593,53 @@
   box-shadow: 0 0 14px color-mix(in srgb, var(--primary) 60%, transparent);
 }
 
-.hero-card-kicker {
-  margin: 0;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.72rem;
-  font-weight: 700;
+.orbit-system {
+  position: relative;
+  width: min(100%, 620px);
+  aspect-ratio: 1;
 }
 
-.hero-profile-card h2 {
-  margin: 16px 0 0;
-  max-width: 13ch;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  line-height: 1.1;
+.orbit-node {
+  position: absolute;
+  inset: 0;
+  animation: orbit-spin 30s linear infinite;
 }
 
-.hero-profile-card p {
-  margin: 14px 0 0;
-  max-width: 28ch;
-  color: var(--muted);
-  line-height: 1.7;
+.orbit-node-two {
+  animation-delay: -10s;
 }
 
-.hero-note-list {
-  display: grid;
-  gap: 10px;
-  width: 100%;
-  margin-top: 22px;
+.orbit-node-three {
+  animation-delay: -20s;
 }
 
-.hero-note-item {
-  padding: 11px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--heading);
-  line-height: 1.55;
+.orbit-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(248px, 42vw);
+  min-height: 198px;
+  transform:
+    translate(-50%, -50%)
+    rotate(calc(var(--orbit-start, 0deg) * 1))
+    translateY(calc(var(--orbit-radius, 230px) * -1))
+    rotate(calc(var(--orbit-start, 0deg) * -1));
+  animation: orbit-counter 30s linear infinite;
+}
+
+.orbit-node-one .orbit-panel {
+  --orbit-start: 8deg;
+}
+
+.orbit-node-two .orbit-panel {
+  --orbit-start: 128deg;
+}
+
+.orbit-node-three .orbit-panel {
+  --orbit-start: 248deg;
 }
 
 .floating-panel {
-  position: absolute;
   width: min(250px, 46%);
   min-height: 184px;
   padding: 20px;
@@ -686,44 +674,6 @@
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
-}
-
-.note-top {
-  top: 44px;
-  right: -26px;
-}
-
-.note-middle {
-  top: 50%;
-  left: -54px;
-  transform: translateY(-50%);
-}
-
-.note-bottom {
-  right: 20px;
-  bottom: 24px;
-}
-
-.floating-orb {
-  position: absolute;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), rgba(211, 163, 95, 0.06));
-  box-shadow: var(--shadow);
-}
-
-.orb-top {
-  top: 136px;
-  left: 36px;
-  width: 38px;
-  height: 38px;
-}
-
-.orb-bottom {
-  right: 54px;
-  bottom: 72px;
-  width: 72px;
-  height: 72px;
 }
 
 .stats-strip {
@@ -1286,6 +1236,34 @@
   }
 }
 
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(calc(var(--orbit-start, 0deg) * 1))
+      translateY(calc(var(--orbit-radius, 230px) * -1))
+      rotate(calc(var(--orbit-start, 0deg) * -1))
+      rotate(0deg);
+  }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(calc(var(--orbit-start, 0deg) * 1))
+      translateY(calc(var(--orbit-radius, 230px) * -1))
+      rotate(calc(var(--orbit-start, 0deg) * -1))
+      rotate(-360deg);
+  }
+}
+
 @keyframes menu-slide {
   from {
     opacity: 0;
@@ -1370,6 +1348,15 @@
     min-height: 500px;
   }
 
+  .orbit-system {
+    width: min(100%, 560px);
+  }
+
+  .orbit-panel {
+    --orbit-radius: 206px;
+    width: min(228px, 40vw);
+  }
+
   .mobile-menu-layer .mobile-menu {
     top: 88px;
     left: 18px;
@@ -1430,12 +1417,6 @@
     padding-top: 12px;
   }
 
-  .hero-profile-card {
-    width: 100%;
-    min-height: auto;
-    padding: 22px 18px;
-  }
-
   .floating-panel {
     position: relative;
     inset: auto;
@@ -1445,8 +1426,29 @@
     transform: none;
   }
 
-  .hero-visual-ring,
-  .floating-orb {
+  .orbit-system {
+    width: 100%;
+    aspect-ratio: auto;
+    display: grid;
+    gap: 14px;
+  }
+
+  .orbit-node {
+    position: static;
+    animation: none;
+  }
+
+  .orbit-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    min-height: auto;
+    animation: none;
+    transform: none;
+  }
+
+  .hero-visual-ring {
     display: none;
   }
 

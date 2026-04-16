@@ -48,12 +48,6 @@ const stats = [
   { value: "100%", label: "focus on clarity, polish, and usability" },
 ];
 
-const heroHighlights = [
-  "Frontend-focused with product and visual thinking",
-  "Comfortable turning rough ideas into usable flows",
-  "Careful with spacing, hierarchy, and responsive detail",
-];
-
 const teamValueCards = [
   {
     title: "What teams get",
@@ -438,43 +432,29 @@ export const Home = () => {
               <div className="hero-visual">
                 <div className="hero-visual-ring ring-one" />
                 <div className="hero-visual-ring ring-two" />
-                <div className="hero-profile-card">
-                  <div className="profile-badge">
-                    <span className="status-dot" />
-                    Available for opportunities
+                <div className="orbit-system" data-reveal>
+                  <div className="orbit-node orbit-node-one">
+                    <article className="floating-panel orbit-panel">
+                      <small>Current focus</small>
+                      <strong>Interfaces that feel calm, premium, and easy to understand.</strong>
+                      <p>Clear structure, cleaner flow, and stronger visual rhythm from the first screen onward.</p>
+                    </article>
                   </div>
-                  <p className="hero-card-kicker">Frontend systems, product polish, and reliable execution</p>
-                  <h2>I build websites and interfaces that feel thoughtful, easy to follow, and ready to present.</h2>
-                  <p>
-                    My focus is not only writing the interface, but also helping it feel clearer, more consistent, and
-                    more credible from the first impression to the final interaction.
-                  </p>
-                  <div className="hero-note-list">
-                    {heroHighlights.map((item) => (
-                      <span key={item} className="hero-note-item">
-                        {item}
-                      </span>
-                    ))}
+                  <div className="orbit-node orbit-node-two">
+                    <article className="floating-panel orbit-panel">
+                      <small>What I bring</small>
+                      <strong>Frontend craft with product awareness and practical implementation.</strong>
+                      <p>I enjoy making digital work feel more consistent, usable, and presentation-ready.</p>
+                    </article>
+                  </div>
+                  <div className="orbit-node orbit-node-three">
+                    <article className="floating-panel orbit-panel">
+                      <small>Open to</small>
+                      <strong>Internships, junior roles, and collaborative product opportunities.</strong>
+                      <p>Especially teams that value detail, momentum, and thoughtful feedback.</p>
+                    </article>
                   </div>
                 </div>
-
-                <div className="floating-panel note-top" data-reveal>
-                  <small>Current focus</small>
-                  <strong>Interfaces that feel calm, premium, and easy to understand.</strong>
-                  <p>Clear structure, cleaner flow, and stronger visual rhythm from the first screen onward.</p>
-                </div>
-                <div className="floating-panel note-middle" data-reveal>
-                  <small>What I bring</small>
-                  <strong>Frontend craft with product awareness and practical implementation.</strong>
-                  <p>I enjoy making digital work feel more consistent, usable, and presentation-ready.</p>
-                </div>
-                <div className="floating-panel note-bottom" data-reveal>
-                  <small>Open to</small>
-                  <strong>Internships, junior roles, and collaborative product opportunities.</strong>
-                  <p>Especially teams that value detail, momentum, and thoughtful feedback.</p>
-                </div>
-                <div className="floating-orb orb-top" aria-hidden="true" />
-                <div className="floating-orb orb-bottom" aria-hidden="true" />
               </div>
             </section>
 
