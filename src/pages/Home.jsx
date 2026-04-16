@@ -48,6 +48,50 @@ const stats = [
   { value: "100%", label: "focus on clarity, polish, and usability" },
 ];
 
+const heroHighlights = [
+  "Frontend-focused with product and visual thinking",
+  "Comfortable turning rough ideas into usable flows",
+  "Careful with spacing, hierarchy, and responsive detail",
+];
+
+const teamValueCards = [
+  {
+    title: "What teams get",
+    text: "A developer who cares about how the product looks, how it feels to use, and how clearly it communicates value.",
+  },
+  {
+    title: "How I usually work",
+    text: "I like understanding the goal first, then tightening structure, simplifying decisions, and building toward a calmer interface.",
+  },
+  {
+    title: "What I'm looking for",
+    text: "Opportunities where I can grow through real product work, strong feedback, and thoughtful collaboration.",
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Clarify the goal",
+    text: "I start by understanding what the page or feature needs to communicate and what the user should do next.",
+  },
+  {
+    step: "02",
+    title: "Shape the interface",
+    text: "Then I focus on hierarchy, spacing, and layout so the structure feels intentional before polish is added.",
+  },
+  {
+    step: "03",
+    title: "Build with care",
+    text: "I implement responsively, keep the UI consistent, and make sure the details still hold up on smaller screens.",
+  },
+  {
+    step: "04",
+    title: "Refine the experience",
+    text: "Finally I smooth the motion, tighten copy, and remove distractions so the end result feels more complete.",
+  },
+];
+
 const projects = [
   {
     title: "apex-kicks",
@@ -402,29 +446,38 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="hero-visual">
-              <div className="hero-visual-ring ring-one" />
-              <div className="hero-visual-ring ring-two" />
-              <div className="hero-profile-card">
-                <div className="profile-badge">
-                  <span className="status-dot" />
-                  Available for opportunities
+              <div className="hero-visual">
+                <div className="hero-visual-ring ring-one" />
+                <div className="hero-visual-ring ring-two" />
+                <div className="hero-profile-card">
+                  <div className="profile-badge">
+                    <span className="status-dot" />
+                    Available for opportunities
+                  </div>
+                  <p className="hero-card-kicker">Frontend systems, product polish, and reliable execution</p>
+                  <h2>I build websites and interfaces that feel thoughtful, easy to follow, and ready to present.</h2>
+                  <p>
+                    My focus is not only writing the interface, but also helping it feel clearer, more consistent, and
+                    more credible from the first impression to the final interaction.
+                  </p>
+                  <div className="hero-note-list">
+                    {heroHighlights.map((item) => (
+                      <span key={item} className="hero-note-item">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="profile-monogram">A</div>
-                <h2>Minimal interfaces with strong detail and thoughtful product execution.</h2>
-                <p>Clean visuals, clear hierarchy, and frontend work that feels quietly premium.</p>
-              </div>
 
-              <div className="floating-panel note-top" aria-hidden="true">
-                <span className="panel-dot" />
-                <span className="panel-line short" />
-                <span className="panel-line" />
-                <span className="panel-line long" />
+                <div className="floating-panel note-top" data-reveal>
+                  <small>Current focus</small>
+                  <strong>Recruiter-ready frontend work with stronger clarity and presentation.</strong>
+                  <p>Open to internships, junior frontend roles, and collaborative product work.</p>
+                </div>
+                <div className="floating-orb orb-top" aria-hidden="true" />
+                <div className="floating-orb orb-bottom" aria-hidden="true" />
               </div>
-              <div className="floating-orb orb-top" aria-hidden="true" />
-              <div className="floating-orb orb-bottom" aria-hidden="true" />
-            </div>
-          </section>
+            </section>
 
           <section className="stats-strip" data-reveal>
             {stats.map((item) => (
@@ -433,6 +486,26 @@ export const Home = () => {
                 <span>{item.label}</span>
               </article>
             ))}
+          </section>
+
+          <section className="section-grid depth-layout">
+            <div className="section-heading" data-reveal>
+              <p className="section-label">A Bit More Context</p>
+              <h2>A portfolio should explain not just the work, but also the thinking behind it.</h2>
+              <p className="section-copy">
+                I wanted this website to show a little more than projects and tools. It should also give a clearer sense
+                of how I approach product work, collaboration, and interface quality.
+              </p>
+            </div>
+
+            <div className="cards-grid depth-grid">
+              {teamValueCards.map((item) => (
+                <article key={item.title} className="info-card depth-card" data-reveal>
+                  <p className="mini-label">{item.title}</p>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section id="portfolio" className="section-grid">
@@ -561,6 +634,27 @@ export const Home = () => {
                   </article>
                 );
               })}
+            </div>
+          </section>
+
+          <section className="section-grid process-layout">
+            <div className="section-heading" data-reveal>
+              <p className="section-label">Process</p>
+              <h2>How I usually take a project from rough idea to something more polished.</h2>
+              <p className="section-copy">
+                Even on smaller projects, I like a process that keeps the work grounded in usability, visual clarity,
+                and practical delivery.
+              </p>
+            </div>
+
+            <div className="process-grid">
+              {processSteps.map((item) => (
+                <article key={item.step} className="process-card" data-reveal>
+                  <span className="process-step">{item.step}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
             </div>
           </section>
 
