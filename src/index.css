@@ -599,44 +599,27 @@
   aspect-ratio: 1;
 }
 
-.orbit-node {
-  position: absolute;
-  inset: 0;
-  animation: orbit-spin 30s linear infinite;
-}
-
-.orbit-node-two {
-  animation-delay: -10s;
-}
-
-.orbit-node-three {
-  animation-delay: -20s;
-}
-
 .orbit-panel {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: min(248px, 42vw);
   min-height: 198px;
-  transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--orbit-start, 0deg) * 1))
-    translateY(calc(var(--orbit-radius, 230px) * -1))
-    rotate(calc(var(--orbit-start, 0deg) * -1));
-  animation: orbit-counter 30s linear infinite;
+  offset-path: circle(var(--orbit-radius, 230px) at 50% 50%);
+  offset-rotate: 0deg;
+  animation: orbit-track 30s linear infinite;
 }
 
-.orbit-node-one .orbit-panel {
-  --orbit-start: 8deg;
+.orbit-panel-one {
+  --orbit-from: 8%;
 }
 
-.orbit-node-two .orbit-panel {
-  --orbit-start: 128deg;
+.orbit-panel-two {
+  --orbit-from: 38%;
 }
 
-.orbit-node-three .orbit-panel {
-  --orbit-start: 248deg;
+.orbit-panel-three {
+  --orbit-from: 70%;
 }
 
 .floating-panel {
@@ -1245,22 +1228,12 @@
   }
 }
 
-@keyframes orbit-counter {
+@keyframes orbit-track {
   from {
-    transform:
-      translate(-50%, -50%)
-      rotate(calc(var(--orbit-start, 0deg) * 1))
-      translateY(calc(var(--orbit-radius, 230px) * -1))
-      rotate(calc(var(--orbit-start, 0deg) * -1))
-      rotate(0deg);
+    offset-distance: var(--orbit-from);
   }
   to {
-    transform:
-      translate(-50%, -50%)
-      rotate(calc(var(--orbit-start, 0deg) * 1))
-      translateY(calc(var(--orbit-radius, 230px) * -1))
-      rotate(calc(var(--orbit-start, 0deg) * -1))
-      rotate(-360deg);
+    offset-distance: calc(var(--orbit-from) + 100%);
   }
 }
 
@@ -1433,11 +1406,6 @@
     gap: 14px;
   }
 
-  .orbit-node {
-    position: static;
-    animation: none;
-  }
-
   .orbit-panel {
     position: relative;
     top: auto;
@@ -1445,6 +1413,8 @@
     width: 100%;
     min-height: auto;
     animation: none;
+    offset-path: none;
+    offset-distance: 0;
     transform: none;
   }
 

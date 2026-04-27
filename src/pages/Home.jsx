@@ -433,27 +433,21 @@ export const Home = () => {
                 <div className="hero-visual-ring ring-one" />
                 <div className="hero-visual-ring ring-two" />
                 <div className="orbit-system" data-reveal>
-                  <div className="orbit-node orbit-node-one">
-                    <article className="floating-panel orbit-panel">
-                      <small>Current focus</small>
-                      <strong>Interfaces that feel calm, premium, and easy to understand.</strong>
-                      <p>Clear structure, cleaner flow, and stronger visual rhythm from the first screen onward.</p>
-                    </article>
-                  </div>
-                  <div className="orbit-node orbit-node-two">
-                    <article className="floating-panel orbit-panel">
-                      <small>What I bring</small>
-                      <strong>Frontend craft with product awareness and practical implementation.</strong>
-                      <p>I enjoy making digital work feel more consistent, usable, and presentation-ready.</p>
-                    </article>
-                  </div>
-                  <div className="orbit-node orbit-node-three">
-                    <article className="floating-panel orbit-panel">
-                      <small>Open to</small>
-                      <strong>Internships, junior roles, and collaborative product opportunities.</strong>
-                      <p>Especially teams that value detail, momentum, and thoughtful feedback.</p>
-                    </article>
-                  </div>
+                  <article className="floating-panel orbit-panel orbit-panel-one">
+                    <small>Current focus</small>
+                    <strong>Interfaces that feel calm, premium, and easy to understand.</strong>
+                    <p>Clear structure, cleaner flow, and stronger visual rhythm from the first screen onward.</p>
+                  </article>
+                  <article className="floating-panel orbit-panel orbit-panel-two">
+                    <small>What I bring</small>
+                    <strong>Frontend craft with product awareness and practical implementation.</strong>
+                    <p>I enjoy making digital work feel more consistent, usable, and presentation-ready.</p>
+                  </article>
+                  <article className="floating-panel orbit-panel orbit-panel-three">
+                    <small>Open to</small>
+                    <strong>Internships, junior roles, and collaborative product opportunities.</strong>
+                    <p>Especially teams that value detail, momentum, and thoughtful feedback.</p>
+                  </article>
                 </div>
               </div>
             </section>
