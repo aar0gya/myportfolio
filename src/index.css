@@ -1261,6 +1261,10 @@
 }
 
 @media (max-width: 1240px) {
+  .content {
+    gap: 24px;
+  }
+
   .hero,
   .split-layout,
   .resume-layout,
@@ -1278,10 +1282,24 @@
 
   .hero {
     min-height: auto;
+    padding-top: 18px;
   }
 
   .hero-visual {
     min-height: 560px;
+  }
+
+  .hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-grid,
+  .split-layout,
+  .resume-layout,
+  .contact-layout {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .stats-strip {
@@ -1289,7 +1307,7 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .desktop-nav,
   .desktop-only {
     display: none;
@@ -1301,6 +1319,42 @@
 
   .brand-meta {
     display: none;
+  }
+
+  .topbar {
+    padding: 12px 14px;
+  }
+
+  .topbar-actions {
+    gap: 10px;
+  }
+
+  .hero {
+    gap: 20px;
+  }
+
+  .hero-copy h1 {
+    max-width: 10ch;
+    font-size: clamp(2.8rem, 6.6vw, 4.6rem);
+  }
+
+  .hero-subline {
+    max-width: 30ch;
+    font-size: 1.08rem;
+  }
+
+  .hero-description {
+    max-width: 54ch;
+    line-height: 1.78;
+  }
+
+  .stats-strip,
+  .section-grid,
+  .split-layout,
+  .resume-layout,
+  .contact-layout {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .footer-columns {
@@ -1340,6 +1394,27 @@
   .resume-layout,
   .split-layout {
     gap: 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .page-frame {
+    padding: 14px;
+  }
+
+  .topbar {
+    top: 12px;
+    border-radius: 18px;
+  }
+
+  .hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.7rem, 7vw, 4.1rem);
+  }
+
+  .hero-subline,
+  .hero-description {
+    max-width: 100%;
   }
 }
 
